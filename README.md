@@ -8,6 +8,7 @@ the extra request should be waiting for the formmer request complete. I setup a 
   1. select a elevator* tmp in _elist with it's idx returned.
   2. set tmp to start floor
   3. set tmp to end floor 
+  
  Note:
   If a certain elevator is being used, _using[idx] is set to true and CANNOT be selected by other request! if all elements of _using is true, then the request is blocking outside the _elsit.
   If request contains invalid inputs that the thread is created to cerr a error message. Elevatorperson() would not be called.
