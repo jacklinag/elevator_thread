@@ -27,19 +27,19 @@ void
 Elevator::setfloor(int a)
 {   
     int t = current_floor;
-    display_floor();
+    // display_floor();
     if(t - a < 0){
         for(int i=0; i<a-t; i++){
             sleep(1);
             current_floor += 1;
-            cout<<"\b\b\b", display_floor();
+            // cout<<"\b\b\b", display_floor();
         }
     }
     else if(t - a > 0){
         for(int i=0; i<t-a; i++){
             sleep(1);
             current_floor -= 1;
-            cout<<"\b\b\b", display_floor();
+            // cout<<"\b\b\b", display_floor();
             
         }
     }
@@ -83,6 +83,7 @@ Building::NewElevator(Elevator* ne)
 void 
 Building::Elevateperson(Person* a)
 {   
+    int p_i = Person::getcnt();
     //select a elevator
     while(requset_nums>_elist.size()){
         
@@ -94,11 +95,11 @@ Building::Elevateperson(Person* a)
     _using[idx] = true;
     //moving to start floor
     tmp->setfloor(a->getstart());
-    cout << endl << "elevator arrives start floor !!" <<endl;
+    cout << endl << "elevator [" << idx << "] arrives start floor for person[" << p_i << "] !!" <<endl;
 
     //moving to end floor
     tmp->setfloor(a->getend());
-    cout << endl << "elevator arrives end floor !!" <<endl;
+    cout << endl << "elevator [" << idx << "] arrives end floor for person[" << p_i << "] !!" <<endl;
     _using[idx] = false;
 }
 
@@ -106,7 +107,7 @@ void
 Building::printstatus()
 {   
     for(int i=0; i<_elist.size(); i++){
-        cout << "["<<_elist[i]->getfloor()<< "]";
+        cout << "[" << _elist[i]->getfloor() << "]";
     }
     cout<<endl;
 }
@@ -121,4 +122,9 @@ int
 Person::getend()
 {
     return _floor_end;
+}
+
+int Person::getcnt()
+{
+    return p_cnt;
 }

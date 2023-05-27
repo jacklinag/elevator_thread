@@ -30,15 +30,19 @@ public:
     Person(int x,int y){
         _floor_start = x;
         _floor_end = y;
+        ++p_cnt;
     }
-
+    
     int getstart();
     int getend();
+    static int getcnt();
 
 private:
     int _floor_start;
     int _floor_end;
+    static int p_cnt;
 };
+
 
 class Building{
 public:

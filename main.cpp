@@ -3,12 +3,11 @@
 #include <string>
 #include <thread>
 #include <sys/wait.h>
-#include <queue>
-#include <mutex>
 #include <unistd.h>
 using namespace std;
 
 Building* b = new Building(10);
+int Person::p_cnt = 0;
 
 void cmdFunc(int i, int x,int y){
 
@@ -28,7 +27,6 @@ void cmdFunc(int i, int x,int y){
         b->requset_nums-=1;
         return;
     }
-    cout<<"?"<<endl;
 }
 
 int main(){
