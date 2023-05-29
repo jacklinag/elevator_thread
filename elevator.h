@@ -52,17 +52,18 @@ public:
         maxfloor = x;
         requset_nums = 0;
     }
+    //public for ueser
+    int getrequestnum();
+    void setrequestnum(int);
+    void Elevateperson(Person*);
+    void NewElevator(Elevator*);
+    void printstatus();
+    bool _allusing();
 
+private:
     // member function
     pair<Elevator*,int> SeletElevator(Person*);
-    void Setfloor(Person*);
-    void NewElevator(Elevator*);
-    void Elevateperson(Person*);
-    void printstatus();
-
     // data member
-    //Elevator* e1;
-    //Elevator* e2;
     vector<Elevator*> _elist;
     vector<bool> _using;
     int maxfloor;
